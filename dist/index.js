@@ -15737,7 +15737,7 @@ class UploadHelper {
             const filesList = yield globby_1.default([path.posix.join(directoryPath, glob)]);
             const uploader = (filePath) => __awaiter(this, void 0, void 0, function* () {
                 const destination = yield util_1.GetDestinationFromPath(filePath, directoryPath, parent, prefix);
-                const uploadResp = yield this.uploadFile(bucketName, filePath, gzip, resumable, destination, predefinedAcl, metadata);
+                const uploadResp = yield this.uploadFile(bucketName, filePath, gzip, resumable, destination, predefinedAcl, Object.assign({}, metadata));
                 return uploadResp;
             });
             return yield p_map_1.default(filesList, uploader, { concurrency });
